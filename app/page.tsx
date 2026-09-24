@@ -229,7 +229,7 @@ export default function Home() {
   }
 
   return (
-    <main>
+    <main className={`age-theme-${activeAge}`}>
       <header className="topbar">
         <a className="brand" href="#home" aria-label="Ride Ready home">
           <span className="brand-mark">R<span>↗</span></span>
@@ -285,9 +285,9 @@ export default function Home() {
           <a href="#rules" className="circle-link" aria-label="Go to riding rules">↘</a>
         </div>
         <div className="mission-toolbar">
-          <div><div className="eyebrow eyebrow-dark">PICK A RULE TO PRACTICE</div><h3>Choose your first mission.</h3></div>
+          <div><div className="eyebrow eyebrow-dark">PICK A RULE TO PRACTICE</div><h3>{activeAge === "little" ? "Choose your first mission." : "Choose a riding scenario."}</h3></div>
           <div className="mission-progress" aria-label={`${completedCount} of 6 missions completed`}>
-            <span><b>{completedCount}</b> / 6 missions</span>
+            <span><b>{completedCount}</b> / 6 {activeAge === "little" ? "missions" : "scenarios"}</span>
             <div className="progress-track"><span style={{ width: `${(completedCount / lessons.length) * 100}%` }} /></div>
           </div>
         </div>
@@ -299,11 +299,11 @@ export default function Home() {
               <article className={`lesson-card mission-card ${isActive ? "is-active" : ""} ${isComplete ? "is-complete" : ""}`} key={lesson.id}>
                 <span className="lesson-icon">{lesson.icon}</span>
                 <span className="lesson-number">RULE {lesson.n}</span>
-                <span className="mission-flag">{isComplete ? "MISSION CLEARED ✓" : "QUICK MISSION"}</span>
+                <span className="mission-flag">{isComplete ? (activeAge === "little" ? "MISSION CLEARED ✓" : "COMPLETED ✓") : (activeAge === "little" ? "QUICK MISSION" : "RIDE SCENARIO")}</span>
                 <h3>{lesson.title}</h3>
                 <p>{lesson.copy}</p>
                 <button type="button" className="activity-trigger" onClick={() => startActivity(lesson.id)} aria-expanded={isActive} aria-controls={isActive ? "activity-panel" : undefined}>
-                  {isActive ? "Challenge open" : "Start challenge"} <span>↗</span>
+                  {isActive ? (activeAge === "little" ? "Challenge open" : "Scenario open") : (activeAge === "little" ? "Start challenge" : "Try scenario")} <span>↗</span>
                 </button>
               </article>
             );
@@ -311,11 +311,11 @@ export default function Home() {
         </div>
         {activeLesson && activity && (
           <section className="activity-panel" id="activity-panel" aria-label={`${activeLesson.title} activity`}>
-            <div className="activity-topline"><span><i /> MINI MISSION · RULE {activeLesson.n}</span><button type="button" onClick={() => { setActiveActivity(null); setSelectedAnswer(null); }} aria-label="Close challenge">CLOSE ×</button></div>
+            <div className="activity-topline"><span><i /> {activeAge === "little" ? "MINI MISSION" : "RIDE SCENARIO"} · RULE {activeLesson.n}</span><button type="button" onClick={() => { setActiveActivity(null); setSelectedAnswer(null); }} aria-label="Close challenge">CLOSE ×</button></div>
             <div className="activity-layout">
               <div className="activity-question">
-                <span className="activity-age">AGES {activeBand.age} · YOUR TURN</span>
-                <h3>{activeLesson.title}<span> mission</span></h3>
+                <span className="activity-age">AGES {activeBand.age} · {activeAge === "little" ? "YOUR TURN" : "YOUR CALL"}</span>
+                <h3>{activeLesson.title}<span> {activeAge === "little" ? "mission" : "scenario"}</span></h3>
                 <p>{activity.prompt}</p>
               </div>
               <div className="activity-answers" role="group" aria-label="Choose the safest answer">
@@ -331,7 +331,7 @@ export default function Home() {
               </div>
             </div>
             <div className={`activity-feedback ${selectedAnswer === null ? "" : selectedAnswer === activity.correct ? "is-success" : "is-hint"}`} role="status" aria-live="polite">
-              {selectedAnswer === null ? <><span>YOUR TURN</span><b>Pick the safest move.</b></> : selectedAnswer === activity.correct ? <><span>MISSION COMPLETE ✦</span><b>{activity.feedback}</b></> : <><span>GOOD TRY — TAKE ANOTHER LOOK</span><b>{activity.hint}</b></>}
+              {selectedAnswer === null ? <><span>{activeAge === "little" ? "YOUR TURN" : "YOUR CALL"}</span><b>Pick the safest move.</b></> : selectedAnswer === activity.correct ? <><span>{activeAge === "little" ? "MISSION COMPLETE ✦" : "SCENARIO COMPLETE ✓"}</span><b>{activity.feedback}</b></> : <><span>{activeAge === "little" ? "GOOD TRY — TAKE ANOTHER LOOK" : "NOT QUITE — REVIEW THE SITUATION"}</span><b>{activity.hint}</b></>}
             </div>
           </section>
         )}
