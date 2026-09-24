@@ -237,3 +237,29 @@ main.age-theme-middle .tool-pill,main.age-theme-teen .tool-pill{background:#f5f7
 @media(max-width:390px){
   main.age-theme-middle .lesson-card.mission-card,main.age-theme-teen .lesson-card.mission-card{min-height:0}
 }
+
+
+/* State and local law source finder */
+.rules-source-panel{max-width:430px;margin-top:14px;padding:15px;border:1px solid #547462;border-radius:8px;background:#204839}
+.source-panel-heading{display:flex;justify-content:space-between;align-items:center;gap:9px;padding-bottom:10px;border-bottom:1px solid #ffffff22;color:#d9f264;font:500 9px 'DM Mono',monospace;letter-spacing:.55px}
+.source-panel-heading small{color:#b6c9ba;font-size:8px;letter-spacing:.2px}
+.source-summary{margin:11px 0;color:#d7e1d8;font-size:12px;line-height:1.6}
+.source-link{display:grid;grid-template-columns:1fr auto;gap:3px 10px;align-items:center;margin-top:7px;padding:9px 10px;border:1px solid #ffffff26;border-radius:5px;background:#ffffff08;transition:background .18s,border-color .18s}
+.source-link:hover{background:#ffffff14;border-color:#b6ce9b}
+.source-link:focus-visible,.local-code-link:focus-visible{outline:3px solid #d9f264;outline-offset:2px}
+.source-link>span{grid-column:1;font:500 8px 'DM Mono',monospace;letter-spacing:.55px;color:#bfd296}
+.source-link>b{grid-column:1;font-size:11px;line-height:1.35;color:#fff}
+.source-link>i{grid-column:2;grid-row:1/3;color:#d9f264;font-style:normal}
+.local-source-picker{margin-top:14px;padding-top:12px;border-top:1px solid #ffffff22}
+.local-source-picker .select-label{margin-top:0}
+.local-source-picker select{width:100%;height:40px;font-size:12px}
+.local-code-link{display:flex;justify-content:space-between;gap:9px;align-items:center;margin-top:8px;padding:9px 10px;border-radius:5px;background:#d9f264;color:#1d3f30;font-size:11px;font-weight:700;line-height:1.4}
+.local-code-link span{flex:none;font-size:15px}
+.source-disclaimer{margin:12px 0 0;color:#c5d4c9;font-size:10px;line-height:1.55}
+@media(max-width:680px){
+  .rules-source-panel{max-width:none;padding:13px}
+  .source-panel-heading{align-items:flex-start;flex-direction:column;gap:4px}
+  .source-summary{font-size:12px}
+  .source-link>b{font-size:11px}
+  .source-disclaimer{font-size:10px}
+}
