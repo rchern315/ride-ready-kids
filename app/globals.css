@@ -103,3 +103,91 @@ body{font-size:16px;line-height:1.6}
   .footer>p{font-size:11px}
   .footer-disclaimer{font-size:10px}
 }
+
+
+/* Ride missions: warmer color, clearer challenge hierarchy, and visible progress. */
+.mission-toolbar{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:36px 0 16px}
+.mission-toolbar h3{font:700 clamp(22px,3vw,30px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-1.1px;margin:8px 0 0}
+.mission-progress{width:min(245px,38%);flex:none;color:#526b42}
+.mission-progress>span{display:block;text-align:right;font:500 11px 'DM Mono',monospace;letter-spacing:.2px;margin-bottom:8px}
+.mission-progress b{font-size:16px;color:#173f32}
+.progress-track{height:9px;border-radius:20px;background:#e4e9dc;overflow:hidden}
+.progress-track>span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#8dbd50,#d9f264);transition:width .35s ease}
+.lesson-card.mission-card{--card-accent:#b3d95b;--card-tint:#f1f7df;min-height:230px;border:1px solid #dce5d3;border-radius:13px;background:linear-gradient(145deg,#fff 5%,#fbfcf8 72%,var(--card-tint));padding:20px 20px 18px;box-shadow:0 4px 0 #e5ebdf;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;overflow:hidden}
+.lesson-card.mission-card:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--card-accent);opacity:.92}
+.lesson-card.mission-card:nth-child(3n+2){--card-accent:#ff9a69;--card-tint:#fff0e8}
+.lesson-card.mission-card:nth-child(3n){--card-accent:#84c9bb;--card-tint:#eaf7f2}
+.lesson-card.mission-card:nth-child(4n){--card-accent:#a89bea;--card-tint:#f0edff}
+.lesson-card.mission-card:hover,.lesson-card.mission-card.is-active{transform:translateY(-4px);border-color:var(--card-accent);box-shadow:0 12px 25px #243e2615}
+.lesson-card.mission-card .lesson-icon{width:42px;height:42px;border-radius:13px;background:var(--card-tint);color:#33573b;font-size:20px}
+.lesson-card.mission-card .lesson-number{top:23px;right:19px;font-size:10px;color:#7f8e80}
+.mission-flag{display:inline-flex;align-items:center;min-height:22px;margin-top:12px;padding:3px 8px;border-radius:20px;background:var(--card-tint);color:#556a43;font:500 9px 'DM Mono',monospace;letter-spacing:.45px}
+.lesson-card.mission-card h3{margin:8px 0 4px;font-size:19px;letter-spacing:-.4px}
+.lesson-card.mission-card p{font-size:14px;line-height:1.5;color:#617067}
+.activity-trigger{display:inline-flex;align-items:center;gap:10px;margin-top:12px;padding:9px 13px;border:0;border-radius:7px;background:#173f32;color:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:background .18s ease,transform .18s ease}
+.activity-trigger span{color:#d9f264;font-size:15px}
+.activity-trigger:hover{background:#2e6548;transform:translateY(-1px)}
+.activity-trigger:focus-visible,.activity-topline button:focus-visible,.answer-choice:focus-visible{outline:3px solid #e7ae52;outline-offset:3px}
+.mission-card.is-complete .mission-flag{background:#e8f5c6;color:#46651e}
+.mission-card.is-complete .activity-trigger{background:#526f39}
+.activity-panel{position:relative;margin-top:18px;padding:20px 24px 21px;border:1px solid #355c48;border-radius:15px;overflow:hidden;background:radial-gradient(ellipse at 92% 0%,#37694e 0%,transparent 34%),linear-gradient(135deg,#15382e,#1d4938 65%,#173d31);color:#fff;box-shadow:0 15px 34px #16372b26;animation:mission-enter .3s ease both}
+.activity-panel:after{content:"";position:absolute;right:-42px;bottom:-130px;width:280px;height:280px;border:1px solid #d9f2642b;border-radius:50%;box-shadow:0 0 0 30px #d9f2640a,0 0 0 65px #d9f26408;pointer-events:none}
+.activity-topline{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid #ffffff20;color:#d9f264;font:500 10px 'DM Mono',monospace;letter-spacing:.8px}
+.activity-topline>span{display:flex;align-items:center;gap:8px}
+.activity-topline i{width:7px;height:7px;border-radius:50%;background:#d9f264;box-shadow:0 0 0 4px #d9f26420}
+.activity-topline button{border:1px solid #ffffff47;border-radius:20px;background:transparent;color:#ecf1e8;padding:6px 10px;font:500 9px 'DM Mono',monospace;cursor:pointer}
+.activity-layout{position:relative;z-index:1;display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:center;padding:21px 0 17px}
+.activity-age{display:inline-block;color:#c5db9b;font:500 9px 'DM Mono',monospace;letter-spacing:.8px}
+.activity-question h3{margin:9px 0 8px;font:700 25px/1.08 'Space Grotesk',sans-serif;letter-spacing:-1px}
+.activity-question h3 span{color:#d9f264}
+.activity-question p{margin:0;color:#e0e9e1;font-size:15px;line-height:1.6}
+.activity-answers{display:grid;gap:8px}
+.answer-choice{display:grid;grid-template-columns:31px 1fr 19px;gap:10px;align-items:center;width:100%;min-height:51px;padding:8px 12px;border:1px solid #ffffff30;border-radius:9px;background:#ffffff0c;color:#fff;text-align:left;cursor:pointer;transition:transform .16s ease,border-color .16s ease,background .16s ease}
+.answer-choice:hover:not(:disabled){transform:translateX(3px);border-color:#d9f264;background:#ffffff18}
+.answer-choice:disabled{cursor:default}
+.choice-letter{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#ffffff1c;color:#d9f264;font:500 11px 'DM Mono',monospace}
+.choice-copy{font-size:13px;line-height:1.4}
+.choice-mark{justify-self:end;color:#a8c38c;font-size:14px}
+.answer-choice.is-correct{background:#d9f264;border-color:#d9f264;color:#183a2d}
+.answer-choice.is-correct .choice-letter{background:#173f32;color:#d9f264}
+.answer-choice.is-correct .choice-mark{color:#214c36}
+.answer-choice.is-wrong{background:#ff987733;border-color:#ff9877}
+.answer-choice.is-wrong .choice-letter,.answer-choice.is-wrong .choice-mark{color:#ffc0a7}
+.activity-feedback{position:relative;z-index:1;display:flex;gap:12px;align-items:center;min-height:43px;padding:10px 13px;border:1px dashed #ffffff38;border-radius:8px;color:#f0f3e9}
+.activity-feedback>span{flex:none;color:#d9f264;font:500 9px 'DM Mono',monospace;letter-spacing:.45px}
+.activity-feedback b{font-size:12px;font-weight:600;line-height:1.45}
+.activity-feedback.is-success{border-style:solid;border-color:#d9f26466;background:#d9f26418}
+.activity-feedback.is-hint{border-color:#ffc09a66;background:#ffbb8c12}
+.activity-feedback.is-hint>span{color:#ffc09a}
+.content-note{margin-top:20px}
+@keyframes mission-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:680px){
+  .mission-toolbar{align-items:flex-start;flex-direction:column;gap:15px;margin-top:29px}
+  .mission-toolbar h3{font-size:24px}
+  .mission-progress{width:100%}
+  .mission-progress>span{text-align:left}
+  .lesson-grid{grid-template-columns:1fr 1fr;gap:11px}
+  .lesson-card.mission-card{min-height:245px;padding:16px 14px 15px}
+  .lesson-card.mission-card .lesson-icon{width:37px;height:37px}
+  .lesson-card.mission-card .lesson-number{top:20px;right:13px;font-size:8px}
+  .mission-flag{margin-top:10px;padding:3px 6px;font-size:8px;letter-spacing:0}
+  .lesson-card.mission-card h3{font-size:16px}
+  .lesson-card.mission-card p{font-size:12px;line-height:1.45}
+  .activity-trigger{padding:8px 9px;font-size:11px;gap:6px}
+  .activity-panel{padding:16px 14px 15px;border-radius:12px}
+  .activity-layout{grid-template-columns:1fr;gap:16px;padding:17px 0 14px}
+  .activity-question h3{font-size:23px}
+  .activity-question p{font-size:14px}
+  .answer-choice{min-height:49px;padding:8px 9px;grid-template-columns:29px 1fr 15px;gap:8px}
+  .choice-copy{font-size:12px}
+  .activity-feedback{align-items:flex-start;flex-direction:column;gap:4px}
+  .activity-feedback b{font-size:12px}
+}
+@media(max-width:390px){
+  .lesson-grid{grid-template-columns:1fr}
+  .lesson-card.mission-card{min-height:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .activity-panel{animation:none}
+  .progress-track>span,.lesson-card.mission-card,.activity-trigger,.answer-choice{transition:none}
+}
