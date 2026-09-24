@@ -194,6 +194,25 @@ const missions: Record<string, Record<string, RideMission>> = {
   },
 };
 
+
+const localCodeSources: Record<string, { label: string; url: string }> = {
+  Reno: {
+    label: "Reno Municipal Code · Chapter 6.18 (Bicycles)",
+    url: "https://library.municode.com/nv/reno/codes/administrative_code?nodeId=PT2READCO_TIT6VETR_CH6.18BI",
+  },
+  Sparks: {
+    label: "Sparks Code of Ordinances",
+    url: "https://library.municode.com/nv/sparks/codes/code_of_ordinances",
+  },
+  "Las Vegas": {
+    label: "Las Vegas City Code · Chapter 11.40 (Bicycles)",
+    url: "https://library.municode.com/nv/las_vegas/codes/code_of_ordinances?nodeId=TIT11VETR_CH11.40BI",
+  },
+};
+
+const officialLegislatureDirectory = "https://www.ilsos.gov/departments/library/state-employees/statelegis.html";
+const officialLocalGovernmentDirectory = "https://www.usa.gov/local-governments";
+
 const practiceSteps = [
   { light: "red", label: "RED LIGHT", title: "Slow down and stop.", copy: "Brake smoothly and stop before the crosswalk or stop line. Keep both hands ready to control your ride.", cue: "STOP" },
   { light: "red", label: "YOU ARE STOPPED", title: "Look and listen.", copy: "Check left, right, and left again. Look for turning cars, people walking, and anything that may cross your path.", cue: "LOOK BOTH WAYS" },
@@ -204,6 +223,7 @@ const practiceSteps = [
 export default function Home() {
   const [activeAge, setActiveAge] = useState("middle");
   const [selectedState, setSelectedState] = useState("");
+  const [selectedLocality, setSelectedLocality] = useState("");
   const [step, setStep] = useState(-1);
   const activeBand = ageBands.find((band) => band.id === activeAge) ?? ageBands[0];
   const currentStep = step >= 0 ? practiceSteps[step] : null;
@@ -364,7 +384,62 @@ export default function Home() {
       </section>
 
       <section className="state-section" id="state-rules">
-        <div className="state-copy"><div className="eyebrow">SAME SMART HABITS. DIFFERENT LOCAL RULES.</div><h2>Where do<br />you <span>ride?</span></h2><p>Rules about sidewalks, streets, helmets, and electric rides can change depending on where you live. We&apos;re building a state-by-state guide checked against official sources.</p><label className="select-label" htmlFor="state-select">CHOOSE YOUR STATE</label><select id="state-select" value={selectedState} onChange={(event) => setSelectedState(event.target.value)}>{states.map((state) => <option key={state} value={state === "Choose a state" ? "" : state}>{state}</option>)}</select>{selectedState && <div className="state-status" role="status"><span>✦</span><p><b>{selectedState} rules are on our roadmap.</b><br />For now, ask a grown-up to check your local and state rules before you ride.</p></div>}</div>
+        <div className="state-copy">
+          <div className="eyebrow">STATE RULES + LOCAL CODE LINKS</div>
+          <h2>Know your<br /><span>ride zone.</span></h2>
+          <p>Check the state rules, then look for city or county rules that may add restrictions. We link to source material and clearly mark where our research is still in progress.</p>
+          <label className="select-label" htmlFor="state-select">CHOOSE YOUR STATE</label>
+          <select id="state-select" value={selectedState} onChange={(event) => { setSelectedState(event.target.value); setSelectedLocality(""); }}>
+            {states.map((state) => <option key={state} value={state === "Choose a state" ? "" : state}>{state}</option>)}
+          </select>
+          {selectedState && (
+            <div className="rules-source-panel" aria-live="polite">
+              <div className="source-panel-heading">
+                <span>SOURCE LINKS · {selectedState.toUpperCase()}</span>
+                <small>LINKS CHECKED SEP 24, 2026</small>
+              </div>
+              {selectedState === "Nevada" ? (
+                <>
+                  <p className="source-summary">Start with Nevada’s traffic statutes. They include state rules for e-bikes and e-scooters; some path and trail decisions can also be local.</p>
+                  <a className="source-link" href="https://www.leg.state.nv.us/nrs/nrs-484a.html" target="_blank" rel="noreferrer">
+                    <span>STATE STATUTES</span><b>NRS 484A · Traffic laws generally</b><i>↗</i>
+                  </a>
+                  <a className="source-link" href="https://www.leg.state.nv.us/nrs/nrs-484b.html" target="_blank" rel="noreferrer">
+                    <span>STATE STATUTES</span><b>NRS 484B · Rules of the road</b><i>↗</i>
+                  </a>
+                </>
+              ) : (
+                <>
+                  <p className="source-summary">We haven’t verified riding-law links for {selectedState} yet. Use the official legislature directory to find that state’s statute site.</p>
+                  <a className="source-link" href={officialLegislatureDirectory} target="_blank" rel="noreferrer">
+                    <span>OFFICIAL DIRECTORY</span><b>Find {selectedState}’s legislature website</b><i>↗</i>
+                  </a>
+                </>
+              )}
+              <div className="local-source-picker">
+                <label className="select-label" htmlFor="locality-select">CITY OR COUNTY CODE</label>
+                {selectedState === "Nevada" ? (
+                  <>
+                    <select id="locality-select" value={selectedLocality} onChange={(event) => setSelectedLocality(event.target.value)}>
+                      <option value="">Choose a city code link</option>
+                      {Object.keys(localCodeSources).map((city) => <option value={city} key={city}>{city}</option>)}
+                    </select>
+                    {selectedLocality && localCodeSources[selectedLocality] && (
+                      <a className="local-code-link" href={localCodeSources[selectedLocality].url} target="_blank" rel="noreferrer">
+                        {localCodeSources[selectedLocality].label} <span>↗</span>
+                      </a>
+                    )}
+                  </>
+                ) : (
+                  <a className="source-link" href={officialLocalGovernmentDirectory} target="_blank" rel="noreferrer">
+                    <span>OFFICIAL DIRECTORY</span><b>Find a local government website in {selectedState}</b><i>↗</i>
+                  </a>
+                )}
+              </div>
+              <p className="source-disclaimer">These are starting points, not a complete legal summary. Check the rules for your exact city, county, device, and route. Ask a grown-up to help.</p>
+            </div>
+          )}
+        </div>
         <div className="state-map" aria-hidden="true"><div className="map-grid"/><div className="map-orbit orbit-one"/><div className="map-orbit orbit-two"/><div className="map-pin pin-one">✦</div><div className="map-pin pin-two">✦</div><div className="map-pin pin-three">✦</div><div className="map-note">50 states<br /><b>one safer ride at a time</b></div><div className="map-route route-one"/><div className="map-route route-two"/></div>
       </section>
 
