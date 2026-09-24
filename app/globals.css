@@ -23,3 +23,83 @@ button,select{font:inherit}
 .crossing-scene[data-step="1"] .scene-rider{left:30%}
 .crossing-scene[data-step="2"] .scene-rider{left:30%}
 .crossing-scene[data-step="3"] .scene-rider{left:56%}
+
+
+/* Readability pass: bring instructional copy up to comfortable reading sizes. */
+body{font-size:16px;line-height:1.6}
+.main-nav{font-size:15px}
+.nav-cta{font-size:13px}
+.eyebrow{font-size:11px;letter-spacing:1.2px;line-height:1.45}
+.hero-intro{font-size:17px;line-height:1.7}
+.button{font-size:14px}
+.text-link{font-size:13px}
+.hero-meta{font-size:10px;letter-spacing:.7px}
+.hero-caption b{font-size:12px}
+.hero-caption small{font-size:11px}
+.quick-strip strong{font-size:16px}
+.quick-strip>div>span:last-child{font-size:13px}
+.section-heading>p,.video-heading>p{font-size:15px;line-height:1.75}
+.age-tab small{font-size:12px}
+.age-feature .eyebrow{font-size:10px}
+.age-feature-main p{font-size:14px;line-height:1.65}
+.lesson-number{font-size:10px}
+.lesson-card h3{font-size:18px}
+.lesson-card p{font-size:14px;line-height:1.6;max-width:none}
+.lesson-card>a{font-size:13px}
+.content-note{font-size:12px;line-height:1.55}
+.practice-intro>p{font-size:15px;line-height:1.75}
+.tool-pill{font-size:11px}
+.board-top{font-size:10px}
+.step-count{font-size:10px}
+.board-content p{font-size:14px;line-height:1.65}
+.board-content h3{font-size:23px}
+.button-green{font-size:13px}
+.video-caption>span{font-size:10px}
+.video-caption p{font-size:14px;line-height:1.65}
+.video-caption a{font-size:13px}
+.video-footnote{font-size:11px;line-height:1.5}
+.state-copy>p{font-size:14px;line-height:1.75}
+.select-label{font-size:10px}
+.state-status p{font-size:13px;line-height:1.6}
+.grownups .eyebrow{font-size:10px}
+.grownups p{font-size:14px;line-height:1.7}
+.grownup-link{font-size:12px}
+.footer>p{font-size:12px}
+.footer-right{font-size:9px}
+.footer-disclaimer{font-size:11px;line-height:1.6}
+
+@media(max-width:680px){
+  .hero-intro{font-size:16px}
+  .hero-meta{font-size:9px;line-height:1.5;flex-wrap:wrap}
+  .hero-meta i{display:none}
+  .quick-strip strong{font-size:15px}
+  .quick-strip>div>span:last-child{font-size:12px}
+  .section-heading>p,.video-heading>p{font-size:14px}
+  .age-tab span{font-size:20px}
+  .age-tab small{font-size:10px;line-height:1.4}
+  .age-feature .eyebrow{font-size:9px}
+  .age-feature-main h3{font-size:18px}
+  .age-feature-main p{font-size:13px}
+  .lesson-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .lesson-card{min-height:210px;padding:16px}
+  .lesson-card h3{font-size:16px}
+  .lesson-card p{font-size:13px;line-height:1.55}
+  .lesson-card>a{font-size:12px}
+  .lesson-number{font-size:9px}
+  .content-note{font-size:11px}
+  .practice-intro>p{font-size:14px}
+  .tool-pill{font-size:10px}
+  .board-top{font-size:9px}
+  .step-count{font-size:9px}
+  .board-content p{font-size:13px}
+  .video-caption>span{font-size:9px}
+  .video-caption p{font-size:13px}
+  .video-caption a{font-size:12px}
+  .video-footnote{font-size:10px}
+  .state-copy>p{font-size:13px}
+  .state-status p{font-size:12px}
+  .grownups p{font-size:13px}
+  .grownup-link{font-size:11px}
+  .footer>p{font-size:11px}
+  .footer-disclaimer{font-size:10px}
+}
