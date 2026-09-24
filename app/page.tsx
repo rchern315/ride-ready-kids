@@ -202,7 +202,7 @@ const practiceSteps = [
 ];
 
 export default function Home() {
-  const [activeAge, setActiveAge] = useState("little");
+  const [activeAge, setActiveAge] = useState("middle");
   const [selectedState, setSelectedState] = useState("");
   const [step, setStep] = useState(-1);
   const activeBand = ageBands.find((band) => band.id === activeAge) ?? ageBands[0];
