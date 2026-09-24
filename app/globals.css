@@ -191,3 +191,49 @@ body{font-size:16px;line-height:1.6}
   .activity-panel{animation:none}
   .progress-track>span,.lesson-card.mission-card,.activity-trigger,.answer-choice{transition:none}
 }
+
+
+/* Older rider view: a cleaner, more confident visual tone for ages 11–17. */
+main.age-theme-middle .quick-strip,main.age-theme-teen .quick-strip{background:#e5ebe4;border-top:1px solid #d4ddd4;border-bottom:1px solid #d4ddd4}
+main.age-theme-middle .strip-num,main.age-theme-teen .strip-num{color:#557457}
+main.age-theme-middle .quick-strip>div,main.age-theme-teen .quick-strip>div{border-left:2px solid #9ab75a;padding-left:12px}
+main.age-theme-middle .hero-art,main.age-theme-teen .hero-art{border-radius:12px;background:linear-gradient(160deg,#cddbd0,#a8c9b7 58%,#dae3c3)}
+main.age-theme-middle .sun-disc,main.age-theme-teen .sun-disc{background:#e3ebd0}
+main.age-theme-middle .hero-sticker,main.age-theme-teen .hero-sticker,main.age-theme-middle .art-scribble,main.age-theme-teen .art-scribble{display:none}
+main.age-theme-middle .hero-caption,main.age-theme-teen .hero-caption{box-shadow:0 3px 12px #173f3215;border:1px solid #e0e7dc}
+main.age-theme-middle .age-feature,main.age-theme-teen .age-feature{background:#e8eee7;border:1px solid #d8e1d7;border-radius:8px}
+main.age-theme-middle .age-feature.yellow,main.age-theme-teen .age-feature.yellow,main.age-theme-middle .age-feature.lavender,main.age-theme-teen .age-feature.lavender{background:#e8eee7}
+main.age-theme-middle .age-feature-icon,main.age-theme-teen .age-feature-icon{border-radius:9px;background:#d9e7dc;color:#244d3b}
+main.age-theme-middle .lesson-card.mission-card,main.age-theme-teen .lesson-card.mission-card{--card-accent:#55785b;--card-tint:#edf1ec;min-height:222px;padding:19px 19px 17px;border-radius:8px;background:#fff;box-shadow:none;border-color:#dbe2dc}
+main.age-theme-middle .lesson-card.mission-card:before,main.age-theme-teen .lesson-card.mission-card:before{width:3px;background:var(--card-accent)}
+main.age-theme-middle .lesson-card.mission-card:nth-child(3n+2),main.age-theme-teen .lesson-card.mission-card:nth-child(3n+2),main.age-theme-middle .lesson-card.mission-card:nth-child(3n),main.age-theme-teen .lesson-card.mission-card:nth-child(3n),main.age-theme-middle .lesson-card.mission-card:nth-child(4n),main.age-theme-teen .lesson-card.mission-card:nth-child(4n){--card-accent:#55785b;--card-tint:#edf1ec}
+main.age-theme-middle .lesson-card.mission-card:hover,main.age-theme-teen .lesson-card.mission-card:hover,main.age-theme-middle .lesson-card.mission-card.is-active,main.age-theme-teen .lesson-card.mission-card.is-active{transform:translateY(-2px);border-color:#9eb69e;box-shadow:0 8px 18px #203a2810}
+main.age-theme-middle .lesson-card.mission-card .lesson-icon,main.age-theme-teen .lesson-card.mission-card .lesson-icon{width:36px;height:36px;border-radius:8px;background:#edf1ec;color:#345c40}
+main.age-theme-middle .mission-flag,main.age-theme-teen .mission-flag{min-height:19px;margin-top:11px;padding:1px 0;border-radius:0;background:transparent;color:#768477;font-size:9px;letter-spacing:.8px}
+main.age-theme-middle .lesson-card.mission-card h3,main.age-theme-teen .lesson-card.mission-card h3{margin-top:9px;font-size:18px}
+main.age-theme-middle .lesson-card.mission-card p,main.age-theme-teen .lesson-card.mission-card p{color:#647169}
+main.age-theme-middle .activity-trigger,main.age-theme-teen .activity-trigger{margin-top:12px;border-radius:5px;background:#e9efe8;color:#234934}
+main.age-theme-middle .activity-trigger span,main.age-theme-teen .activity-trigger span{color:#587b36}
+main.age-theme-middle .activity-trigger:hover,main.age-theme-teen .activity-trigger:hover{background:#dce8d9}
+main.age-theme-middle .mission-card.is-complete .mission-flag,main.age-theme-teen .mission-card.is-complete .mission-flag{background:transparent;color:#537544}
+main.age-theme-middle .mission-card.is-complete .activity-trigger,main.age-theme-teen .mission-card.is-complete .activity-trigger{background:#e4eed9}
+main.age-theme-middle .activity-panel,main.age-theme-teen .activity-panel{border-radius:9px;background:linear-gradient(130deg,#172c29,#203d35);box-shadow:0 10px 25px #20372d1c}
+main.age-theme-middle .activity-panel:after,main.age-theme-teen .activity-panel:after{display:none}
+main.age-theme-middle .activity-topline,main.age-theme-teen .activity-topline{color:#c9db9b}
+main.age-theme-middle .activity-topline i,main.age-theme-teen .activity-topline i{background:#a9c66a;box-shadow:none}
+main.age-theme-middle .activity-age,main.age-theme-teen .activity-age{color:#ccdbb7}
+main.age-theme-middle .activity-question h3,main.age-theme-teen .activity-question h3{font-size:24px;letter-spacing:-.6px}
+main.age-theme-middle .activity-question h3 span,main.age-theme-teen .activity-question h3 span{color:#c9db9b}
+main.age-theme-middle .answer-choice,main.age-theme-teen .answer-choice{border-radius:6px;background:#ffffff09}
+main.age-theme-middle .answer-choice:hover:not(:disabled),main.age-theme-teen .answer-choice:hover:not(:disabled){transform:translateY(-1px)}
+main.age-theme-middle .answer-choice.is-correct,main.age-theme-teen .answer-choice.is-correct{background:#d9f264;border-color:#d9f264}
+main.age-theme-middle .activity-feedback,main.age-theme-teen .activity-feedback{border-radius:6px}
+main.age-theme-middle .practice-section,main.age-theme-teen .practice-section{background:#e7ece5}
+main.age-theme-middle .practice-intro h2 span,main.age-theme-teen .practice-intro h2 span{color:#51734a}
+main.age-theme-middle .tool-pill,main.age-theme-teen .tool-pill{background:#f5f7f3;border-color:#c8d4c8;color:#425d49}
+@media(max-width:680px){
+  main.age-theme-middle .lesson-card.mission-card,main.age-theme-teen .lesson-card.mission-card{min-height:235px;padding:15px 13px}
+}
+@media(max-width:390px){
+  main.age-theme-middle .lesson-card.mission-card,main.age-theme-teen .lesson-card.mission-card{min-height:0}
+}
